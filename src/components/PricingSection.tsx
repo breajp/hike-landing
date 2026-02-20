@@ -46,7 +46,7 @@ export default function PricingSection() {
                             <span className="text-2xl text-white/40">%</span>
                         </div>
                         <p className="text-sm lg:text-base text-white/50 font-light leading-relaxed">
-                            Del <strong className="text-white/80 font-normal underline decoration-cyan-500/30 underline-offset-4">tiempo anual ahorrado</strong>, valuado según el costo operativo vigente de la organización.
+                            Del <strong className="text-white/80 font-normal underline decoration-cyan-500/30 underline-offset-4">valor operativo liberado</strong>, optimizando la capacidad instalada de la organización.
                         </p>
                     </div>
                 </div>
