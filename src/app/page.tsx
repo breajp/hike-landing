@@ -18,6 +18,7 @@ import PricingSection from "@/components/PricingSection";
 import EngagementModels from "@/components/EngagementModels";
 import MarketReality from "@/components/MarketReality";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -26,6 +27,7 @@ export default function Home() {
 
   return (
     <main className="relative bg-[#020202] text-white font-sans selection:bg-white/20 selection:text-white overflow-x-hidden">
+      <Navbar />
       <SideNav />
 
       {/* Dynamic Background Noise */}
@@ -54,10 +56,11 @@ export default function Home() {
             >
               <div className="w-20 h-20 md:w-32 md:h-32 relative flex items-center justify-center">
                 <Image
-                  src="https://files.slack.com/files-pri/T01Q7LJG952-F0AGBK8M7DJ/1080x1080-06.png?pub_secret=8eece3088c"
+                  src="https://files.slack.com/files-pri/T01Q7LJG952-F0AFYPPV46R/1080x1080-07__1_.png?pub_secret=d56c7f0913"
                   alt="Hike Logo"
                   fill
                   className="object-contain opacity-95 hover:opacity-100 transition-opacity"
+                  priority
                 />
               </div>
             </motion.div>

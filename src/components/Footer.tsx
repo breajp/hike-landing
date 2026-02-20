@@ -23,7 +23,7 @@ export default function Footer() {
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 relative">
                                 <Image
-                                    src="https://files.slack.com/files-pri/T01Q7LJG952-F0AGBK8M7DJ/1080x1080-06.png?pub_secret=8eece3088c"
+                                    src="https://files.slack.com/files-pri/T01Q7LJG952-F0AFYPPV46R/1080x1080-07__1_.png?pub_secret=d56c7f0913"
                                     alt="Hike Logo"
                                     fill
                                     className="object-contain"
