@@ -1,11 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020202;
+  --background: #000000;
   --foreground: #ffffff;
-  --accent-orange: #ff4500;
-  --accent-red: #cc0000;
-  --accent-yellow: #ffb703;
 }
 
 @theme inline {
@@ -21,38 +18,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-@layer components {
-
-  /* PWA CONTENT CARDS */
-  .pwa-card {
-    @apply bg-white/[0.03] backdrop-blur-[40px] border border-white/[0.08] rounded-[32px] overflow-hidden transition-all duration-500;
-  }
-
-  .pwa-card:hover {
-    @apply border-white/20 bg-white/[0.06] -translate-y-1;
-  }
-
-  /* BUTTONS & PILLS */
-  .pwa-btn {
-    @apply bg-white text-black font-black uppercase tracking-widest text-[10px] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 flex items-center gap-2;
-  }
-
-  .pwa-pill {
-    @apply bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest text-white/40;
-  }
-
-  /* TYPOGRAPHY */
-  .pwa-title {
-    @apply font-black italic uppercase tracking-tighter leading-[0.85];
-    font-size: clamp(3rem, 10vw, 7rem);
-  }
-
-  .pwa-subtitle {
-    @apply text-white/40 font-medium text-sm tracking-wide uppercase;
-  }
-}
-
 
 /* Hide scrollbar for smooth storytelling */
 ::-webkit-scrollbar {
