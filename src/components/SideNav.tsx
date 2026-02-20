@@ -5,47 +5,52 @@ import { motion } from "framer-motion";
 
 const sections = [
     { id: "home", label: "Inicio" },
-    { id: "clients", label: "Clientes" },
     { id: "philosophy", label: "Misión" },
-    { id: "power", label: "Alianzas" },
+    { id: "clients", label: "Clientes" },
     { id: "story", label: "Historia" },
-    { id: "methodology", label: "Método" },
-    { id: "units", label: "Unidades" }
+    { id: "units", label: "Unidades" },
+    { id: "pricing", label: "Pricing" }
 ];
 
 export default function SideNav() {
     const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY + window.innerHeight / 3;
-
-            for (const section of sections) {
-                const element = document.getElementById(section.id);
-                if (element) {
-                    const { offsetTop, offsetHeight } = element;
-                    if (
-                        scrollPosition >= offsetTop &&
-                        scrollPosition < offsetTop + offsetHeight
-                    ) {
-                        setActiveSection(section.id);
-                    }
-                }
-            }
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -40% 0px',
+            threshold: 0
         };
 
-        window.addEventListener("scroll", handleScroll);
-        handleScroll(); // Initial check
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach((section) => {
+            const element = document.getElementById(section.id);
+            if (element) observer.observe(element);
+        });
+
+        return () => {
+            sections.forEach((section) => {
+                const element = document.getElementById(section.id);
+                if (element) observer.unobserve(element);
+            });
+        };
     }, []);
 
     const scrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            window.scrollTo({
-                top: element.offsetTop,
+            element.scrollIntoView({
                 behavior: "smooth",
+                block: "start"
             });
         }
     };
