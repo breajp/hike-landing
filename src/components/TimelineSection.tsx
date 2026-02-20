@@ -97,7 +97,7 @@ export default function TimelineSection() {
                     className="text-center mb-32 flex flex-col items-center gap-6"
                 >
                     <p className="text-white/30 text-[10px] tracking-[0.4em] uppercase">Evolución</p>
-                    <h2 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-6">El Camino Hasta Acá.</h2>
+                    <h2 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-6">Nuestro Camino Hasta Acá.</h2>
                 </motion.div>
 
                 <div className="relative">
