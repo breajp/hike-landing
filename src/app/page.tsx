@@ -7,37 +7,7 @@ import BottomNav from "@/components/BottomNav";
 import { ArrowDown, Cloud, Database, Bot, BrainCircuit, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import MethodologySection from "@/components/MethodologySection";
-
-const units = [
-  {
-    title: "Cloud & Workspace",
-    description: "Cimientos digitales sólidos. Escalabilidad infinita y arquitecturas serverless nativas en Google Cloud.",
-    icon: Cloud,
-    glowClass: "bg-blue-600",
-    glowPosition: "-bottom-20 -right-20",
-  },
-  {
-    title: "DART",
-    description: "El cerebro operativo. Unificamos flujos dispersos en dashboards de tiempo real y data lakes hiper-rápidos.",
-    icon: Database,
-    glowClass: "bg-pink-600",
-    glowPosition: "-top-20 -left-20",
-  },
-  {
-    title: "Agentes",
-    description: "Operaciones sin fricción. Desplegamos agentes autónomos que ejecutan, corrigen y optimizan 24/7.",
-    icon: Bot,
-    glowClass: "bg-emerald-500",
-    glowPosition: "bottom-10 left-10",
-  },
-  {
-    title: "AI para Marketing",
-    description: "La ventaja predictiva. Machine learning customizado, MMM y optimización algorítmica de medios.",
-    icon: BrainCircuit,
-    glowClass: "bg-orange-600",
-    glowPosition: "top-10 right-10",
-  },
-];
+import UnitsSection from "@/components/UnitsSection";
 
 function TimelineStep({ year, name, desc, link, image, align }: { year: string, name: string, desc: string, link?: string, image: string, align: 'left' | 'right' }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -120,9 +90,16 @@ export default function Home() {
   const scale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
 
   return (
-    <main className="relative bg-[#050505] text-white font-sans selection:bg-white/20 selection:text-white">
+    <main className="relative bg-[#020202] text-white font-sans selection:bg-white/20 selection:text-white overflow-x-hidden">
       {/* Dynamic Background Noise */}
-      <div className="fixed inset-0 z-0 opacity-[0.15] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="fixed inset-0 z-0 opacity-[0.25] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+      {/* Vibrant Ambient Aurora Backgrounds (Foto 2 Aesthetic) */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-blue-700/20 blur-[150px] rounded-full mix-blend-screen" />
+        <div className="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-purple-700/20 blur-[150px] rounded-full mix-blend-screen" />
+        <div className="absolute -bottom-[10%] left-[20%] w-[60%] h-[60%] bg-cyan-600/10 blur-[150px] rounded-full mix-blend-screen" />
+      </div>
 
       {/* Intro Section - The Meeting of Hike & Sigma */}
       <section id="home" className="h-[120vh] relative z-10 flex flex-col justify-center items-center">
@@ -183,8 +160,21 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Clients Section */}
+      <section className="relative z-20 py-16 md:py-24 border-y border-white/[0.02] bg-[#020202]/30 backdrop-blur-sm overflow-hidden mix-blend-screen">
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase mb-12">Impulsando el performance de</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-12 lg:gap-x-16 md:gap-y-10 opacity-70">
+            {["Banco Galicia", "Assist Card", "Despegar", "Intercorp", "Interbank", "Sodimac", "DirecTV", "Falabella", "Siglo XXI", "Coco's Capital", "AstroPay"].map((client) => (
+              <h4 key={client} className="text-lg md:text-xl lg:text-2xl font-light tracking-wider hover:text-white transition-colors cursor-default drop-shadow-lg opacity-80 hover:opacity-100">{client}</h4>
+            ))}
+            <span className="text-sm font-light tracking-widest text-white/30 hidden md:inline-block">y más.</span>
+          </div>
+        </div>
+      </section>
+
       {/* The Story / Timeline */}
-      <section id="story" className="relative z-20 px-6 lg:px-12 pt-4 pb-12 overflow-hidden bg-[#050505]">
+      <section id="story" className="relative z-20 px-6 lg:px-12 pt-4 pb-12 overflow-hidden bg-transparent">
         <div className="max-w-6xl xl:max-w-7xl mx-auto relative">
 
           <motion.div
@@ -237,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* The Vision / Philosophy (Inspired by Minimal Eclipse Aesthetic) */}
-      <section id="philosophy" className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-32 max-w-7xl mx-auto bg-[#050505] overflow-hidden">
+      <section id="philosophy" className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-32 max-w-7xl mx-auto">
 
         {/* Tech decorative text top center/right */}
         <div className="absolute top-24 right-12 lg:right-32 text-white/30 font-mono text-[10px] hidden md:flex flex-col gap-1 items-end">
@@ -249,15 +239,15 @@ export default function Home() {
         <div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8 min-h-[600px]">
 
           {/* The Eclipse (Left Side) */}
-          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] flex-shrink-0">
-            {/* Glow behind */}
+          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] flex-shrink-0 flex items-center justify-center">
+            {/* Glow behind - expanded via -inset-40 to avoid box cutting */}
             <motion.div
-              animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
+              animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 bg-white rounded-full blur-[60px] md:blur-[100px] opacity-70"
+              className="absolute -inset-20 md:-inset-40 bg-gradient-to-tr from-cyan-600 via-blue-600 to-purple-800 rounded-full blur-[60px] md:blur-[100px] lg:blur-[140px] opacity-50 mix-blend-screen"
             />
             {/* The dark planet */}
-            <div className="absolute inset-2 md:inset-6 lg:inset-8 bg-[#0B0B0B] rounded-full z-10 shadow-[inset_-10px_-10px_40px_rgba(255,255,255,0.06)]" />
+            <div className="absolute inset-4 md:inset-8 lg:inset-12 bg-[#020202] rounded-full z-10 shadow-[inset_-10px_-10px_40px_rgba(255,255,255,0.06),_0_0_80px_rgba(0,0,0,0.8)]" />
 
             {/* Content over eclipse */}
             <div className="absolute inset-0 z-20 flex flex-col justify-center items-start text-left p-12 md:p-20 lg:p-28">
@@ -317,38 +307,10 @@ export default function Home() {
       <MethodologySection />
 
       {/* Body Content - Units */}
-      <section id="units" className="relative z-20 px-6 lg:px-12 pb-32 bg-[#050505] pt-12">
-        <div className="max-w-6xl xl:max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 relative z-10 pt-4">
-            {units.map((unit, i) => (
-              <motion.div
-                key={unit.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="relative group overflow-hidden rounded-[2.5rem] p-10 md:p-14 border border-white/10 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:bg-white/[0.04]"
-              >
-                {/* Background Glow Node */}
-                <div className={cn("absolute w-64 h-64 md:w-[500px] md:h-[500px] rounded-full blur-[80px] md:blur-[140px] opacity-20 group-hover:opacity-40 transition-opacity duration-1000 mix-blend-screen pointer-events-none", unit.glowClass, unit.glowPosition)} />
-
-                <div className="relative z-10 flex flex-col h-full gap-10 lg:gap-16">
-                  <div className="text-white/60 group-hover:text-white transition-colors duration-500">
-                    <unit.icon strokeWidth={1} className="w-10 h-10 lg:w-14 lg:h-14 drop-shadow-lg" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl lg:text-4xl font-light tracking-wide mb-4 lg:mb-6 text-white/90 group-hover:text-white transition-colors">{unit.title}</h3>
-                    <p className="text-white/50 font-light text-sm lg:text-lg lg:leading-loose leading-relaxed tracking-wide group-hover:text-white/70 transition-colors">{unit.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <UnitsSection />
 
       {/* Pricing */}
-      <section className="relative z-20 px-6 lg:px-12 py-40 bg-[#050505] text-center flex flex-col items-center justify-center mt-12 pb-64">
+      <section className="relative z-20 px-6 lg:px-12 py-40 bg-transparent text-center flex flex-col items-center justify-center mt-12 pb-64">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
