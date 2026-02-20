@@ -5,47 +5,42 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import BottomNav from "@/components/BottomNav";
 import { ArrowDown, Cloud, Database, Bot, BrainCircuit, Zap } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const units = [
   {
     title: "Cloud & Workspace",
     description: "Scalable infrastructures with Google Cloud and optimized collaboration via Google Workspace.",
     icon: Cloud,
-    color: "from-blue-500/20 to-cyan-500/20",
-    border: "border-blue-500/30",
   },
   {
     title: "DART",
     description: "Data, Automation, Reporting & Tracking. Real-time dashboards and future-proof tracking layers.",
     icon: Database,
-    color: "from-purple-500/20 to-pink-500/20",
-    border: "border-purple-500/30",
   },
   {
     title: "Agents",
     description: "Autonomous data, marketing, and creative agents that execute tasks and optimize continuously.",
     icon: Bot,
-    color: "from-emerald-500/20 to-teal-500/20",
-    border: "border-emerald-500/30",
   },
   {
     title: "AI For Mkt",
     description: "Predictive models, Marketing Mix Modeling, and media optimizations using custom ML and Vertex AI.",
     icon: BrainCircuit,
-    color: "from-orange-500/20 to-red-500/20",
-    border: "border-orange-500/30",
   },
 ];
 
-function TimelineStep({ year, name, desc, link, image }: any) {
+function TimelineStep({ year, name, desc, link, image, align }: { year: string, name: string, desc: string, link?: string, image: string, align: 'left' | 'right' }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["center center", "end 30%"]
+    offset: ["center center", "end 40%"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
+
+  const isLeft = align === 'left';
 
   return (
     <motion.div
@@ -54,120 +49,128 @@ function TimelineStep({ year, name, desc, link, image }: any) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      className="mb-48 relative sm:pl-8 md:pl-16 group flex flex-col items-center sm:items-start"
+      className={cn(
+        "relative flex flex-col md:flex-row items-center w-full mb-32 md:mb-48 group",
+        isLeft ? "md:flex-row" : "md:flex-row-reverse"
+      )}
     >
-      <div className="absolute w-4 h-4 bg-black border-2 border-white/30 rounded-full -left-[9px] top-6 group-hover:border-white transition-colors duration-500 hidden sm:block shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+      {/* Central Node for Desktop */}
+      <div className="absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-black border border-white/20 rounded-full group-hover:border-white/60 transition-colors duration-500 hidden md:block z-10" />
 
-      <div className="text-white/40 font-mono text-sm tracking-widest mb-8 sm:mb-4 flex items-center justify-center sm:justify-start gap-4 w-full">
-        <span className="text-xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">{year}</span>
-        <div className="h-[1px] w-12 bg-white/20 hidden sm:block" />
-      </div>
+      {/* Content Half */}
+      <div className={cn("w-full md:w-1/2 flex flex-col", isLeft ? "md:pr-16 md:items-end md:text-right" : "md:pl-16 md:items-start md:text-left", "items-center text-center pl-8 pr-8")}>
+        <div className="text-white/30 font-mono text-[10px] tracking-widest mb-4 flex items-center justify-center gap-4">
+          <span className="text-sm font-medium text-white/80">{year}</span>
+        </div>
 
-      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 md:gap-16 w-full">
-        <a href={link} target="_blank" rel="noopener noreferrer" className="shrink-0 group/img">
-          <div className="w-40 h-40 md:w-48 md:h-48 relative flex items-center justify-center">
-            <Image
-              src={image}
-              alt={name}
-              fill
-              className="object-contain opacity-70 group-hover/img:opacity-100 transition-all hover:scale-105 duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]"
-            />
-          </div>
-        </a>
-        <motion.div style={{ opacity: textOpacity }} className="flex-1 text-center sm:text-left mt-4 sm:mt-0">
-          <h3 className="text-3xl font-medium mb-3 text-white/90 group-hover:text-white transition-colors">{name}</h3>
-          <p className="text-white/50 font-light leading-relaxed mb-6 text-lg">
-            {desc}
-          </p>
-          {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest text-white/30 hover:text-white flex items-center justify-center sm:justify-start gap-2 transition-colors inline-flex">
-              Visit {name} <ArrowDown size={14} className="-rotate-90 group-hover:translate-x-1 transition-transform" />
+        <div className={cn("flex flex-col gap-6 md:gap-8 w-full", isLeft ? "md:items-end" : "md:items-start", "items-center")}>
+          {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer" className="shrink-0 group/img block">
+              <div className="w-32 h-32 md:w-40 md:h-40 relative flex items-center justify-center">
+                <Image
+                  src={image}
+                  alt={name}
+                  fill
+                  className="object-contain opacity-60 group-hover/img:opacity-100 transition-all hover:scale-105 duration-500 filter grayscale group-hover/img:grayscale-0"
+                />
+              </div>
             </a>
+          ) : (
+            <div className="shrink-0">
+              <div className="w-32 h-32 md:w-40 md:h-40 relative flex items-center justify-center">
+                <Image
+                  src={image}
+                  alt={name}
+                  fill
+                  className="object-contain opacity-60 group-hover:opacity-100 transition-all hover:scale-105 duration-500"
+                />
+              </div>
+            </div>
           )}
-        </motion.div>
+
+          <motion.div style={{ opacity: textOpacity }} className="flex flex-col max-w-sm">
+            <h3 className="text-2xl tracking-wide font-light mb-4 text-white/90">{name}</h3>
+            <p className="text-white/40 font-light text-sm leading-relaxed tracking-wide mb-6">
+              {desc}
+            </p>
+            {link && (
+              <a href={link} target="_blank" rel="noopener noreferrer" className={cn("text-[10px] uppercase tracking-[0.2em] text-white/30 hover:text-white/60 flex items-center gap-2 transition-colors", isLeft ? "md:justify-end" : "md:justify-start", "justify-center")}>
+                View Origin <ArrowDown size={12} className="-rotate-90 group-hover:translate-x-1 transition-transform" />
+              </a>
+            )}
+          </motion.div>
+        </div>
       </div>
+
+      {/* Empty Half placeholder for flex spacing */}
+      <div className="hidden md:block md:w-1/2" />
     </motion.div>
   );
 }
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
-  const y = useTransform(scrollYProgress, [0, 0.2], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
 
   return (
-    <main className="relative bg-black text-white selection:bg-white/30 selection:text-white overflow-hidden">
-      {/* Dynamic Background */}
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05)_0,rgba(0,0,0,1)_80%)] pointer-events-none" />
+    <main className="relative bg-[#050505] text-white font-sans selection:bg-white/20 selection:text-white">
+      {/* Dynamic Background Noise */}
+      <div className="fixed inset-0 z-0 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
       {/* Intro Section - The Meeting of Hike & Sigma */}
       <section id="home" className="h-[120vh] relative z-10 flex flex-col justify-center items-center">
         <motion.div
-          style={{ opacity, scale, y }}
+          style={{ opacity, scale }}
           className="sticky top-0 h-screen flex flex-col justify-center items-center w-full"
         >
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 px-6 w-full max-w-5xl">
+          <div className="relative z-10 flex items-center justify-center gap-12 md:gap-32 px-6 w-full max-w-5xl mix-blend-difference">
             {/* Hike Logo */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center"
             >
-              <div className="w-40 h-40 relative flex items-center justify-center">
+              <div className="w-24 h-24 md:w-32 md:h-32 relative flex items-center justify-center">
                 <Image
                   src="/images/hike_logo.png"
                   alt="Hike Logo"
                   fill
-                  className="object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-700 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                  className="object-contain opacity-90 filter grayscale contrast-125"
                 />
               </div>
-              <p className="mt-4 text-white/40 font-medium tracking-[0.2em] text-xs uppercase">Hike</p>
-            </motion.div>
-
-            {/* Meets / X marker */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-              className="flex flex-col items-center text-white/30"
-            >
-              <Zap size={24} className="text-white/30 mb-2" />
-              <div className="w-[1px] h-12 md:h-16 bg-gradient-to-b from-white/20 to-transparent" />
             </motion.div>
 
             {/* Sigma Logo */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
               className="flex flex-col items-center"
             >
-              <div className="w-40 h-40 relative flex items-center justify-center">
+              <div className="w-24 h-24 md:w-32 md:h-32 relative flex items-center justify-center">
                 <Image
                   src="/images/17sigma_logo.png"
                   alt="17Sigma Logo"
                   fill
-                  className="object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-700 filter invert drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                  className="object-contain opacity-90 filter invert grayscale contrast-125 brightness-150"
                 />
               </div>
-              <p className="mt-4 text-white/40 font-medium tracking-[0.2em] text-xs uppercase">17 Sigma</p>
             </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-            className="absolute bottom-16 flex flex-col items-center"
+            transition={{ delay: 1.5, duration: 1 }}
+            className="absolute bottom-24 flex flex-col items-center"
           >
-            <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-4">Our Vision</p>
-            <div className="w-[1px] h-16 bg-white/10 relative overflow-hidden rounded-full">
+            <div className="w-[1px] h-24 bg-white/10 relative overflow-hidden">
               <motion.div
-                animate={{ y: [-10, 64] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-transparent via-white/80 to-transparent"
+                animate={{ y: [-20, 96] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-transparent via-white/50 to-transparent"
               />
             </div>
           </motion.div>
@@ -175,100 +178,64 @@ export default function Home() {
       </section>
 
       {/* The Story / Timeline */}
-      <section id="story" className="relative z-20 px-6 pt-12 pb-12 overflow-hidden bg-transparent">
-        <div className="max-w-4xl mx-auto relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-32 flex justify-center"
-          >
-            <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase">Our Journey</p>
-          </motion.div>
+      <section id="story" className="relative z-20 px-4 pt-12 pb-12 overflow-hidden bg-[#050505]">
+        <div className="max-w-5xl mx-auto relative">
 
-          <div className="absolute left-1/2 -ml-[0.5px] top-12 bottom-0 w-[1px] bg-white/10 sm:left-[3rem] lg:left-[6rem] sm:ml-0 hidden sm:block">
+          {/* Central Line */}
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[1px] bg-white-[0.03]">
             <motion.div
-              animate={{ y: ["0%", "250%"] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-              className="absolute top-0 w-full h-1/4 bg-gradient-to-b from-transparent via-white/80 to-transparent"
+              animate={{ y: ["0%", "400%"] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+              className="absolute top-0 w-full h-1/4 bg-gradient-to-b from-transparent via-white/30 to-transparent"
             />
           </div>
 
-          <div className="relative sm:border-l border-white/10 sm:ml-12 lg:ml-24 pb-12 sm:border-transparent mt-16">
+          <div className="pt-24 pb-32">
             <TimelineStep
               year="2020"
               name="ABN Digital"
-              desc="The foundation. We established our footprint in digital media, data structures, and advanced tech services to scale businesses gracefully."
+              desc="We established our footprint in digital media and data structures, building the infrastructure to scale businesses."
               link="https://abndigital.com.ar/"
               image="/images/abn_logo.png"
+              align="right"
             />
 
             <TimelineStep
               year="2023"
               name="Detrics"
-              desc="The next evolution. A unified data connector designed specifically for PPC agencies, automating paid media reporting flawlessly."
+              desc="A unified data connector engineered for PPC agencies. We automated paid media reporting to bring extreme clarity to growth."
               link="https://detrics.io/es/"
               image="/images/detrics_logo.png"
+              align="left"
             />
 
-            {/* 2025 - Hike */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="relative sm:pl-8 md:pl-16 group flex flex-col items-center sm:items-start z-10"
-            >
-              <div className="absolute w-6 h-6 bg-black border-[3px] border-white rounded-full -left-[13px] top-6 shadow-[0_0_20px_rgba(255,255,255,0.8)] z-10 hidden sm:flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-              </div>
-
-              <div className="text-white font-mono text-sm tracking-widest mb-8 sm:mb-4 flex items-center justify-center sm:justify-start gap-4 w-full">
-                <span className="text-2xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">2025</span>
-                <div className="h-[1px] w-12 bg-white/40 hidden sm:block" />
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 md:gap-16 w-full">
-                <div className="w-48 h-48 md:w-56 md:h-56 relative flex items-center justify-center">
-                  <Image
-                    src="/images/hike_logo.png"
-                    alt="Hike Logo"
-                    fill
-                    className="object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] animate-[pulse_4s_ease-in-out_infinite]"
-                  />
-                </div>
-                <div className="flex-1 text-center sm:text-left mt-4 sm:mt-0">
-                  <h3 className="text-4xl font-semibold tracking-tight mb-4 text-white">The Hike Ecosystem</h3>
-                  <p className="text-white/70 font-light leading-relaxed text-xl">
-                    We merge cloud infrastructure, advanced data intelligence, and autonomous agents into a single, cohesive force designed to scale modern enterprises automatically.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+            <TimelineStep
+              year="2025"
+              name="The Hike Ecosystem"
+              desc="The convergence. We merge cloud infrastructure, advanced data intelligence, and autonomous agents into a cohesive force."
+              image="/images/hike_logo.png"
+              align="right"
+            />
           </div>
         </div>
       </section>
 
       {/* The Vision / Philosophy */}
-      <section className="relative z-20 min-h-[80vh] flex flex-col items-center justify-center px-6 py-32 max-w-4xl mx-auto text-center border-t border-white/5 mt-24">
+      <section className="relative z-20 min-h-[70vh] flex flex-col items-center justify-center px-6 py-32 max-w-4xl mx-auto text-center mt-12 bg-[#050505]">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-12"
+          className="space-y-16"
         >
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white/90 leading-tight italic">
-              "Fabricar tiempo hasta que el humano vuelva a ser humano."
-            </h2>
-            <p className="text-white/30 text-sm tracking-widest uppercase">Our Core Philosophy</p>
-          </div>
+          <h2 className="text-2xl md:text-4xl font-light tracking-wide text-white/80 leading-relaxed italic mx-auto max-w-3xl">
+            "Fabricar tiempo hasta que el humano vuelva a ser humano."
+          </h2>
 
-          <div className="space-y-6 text-xl md:text-2xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto">
-            <p>Through the absolute leverage of technology, we give time back to society.</p>
-            <p className="text-white/70 font-normal">We audit. We eliminate processes.</p>
-            <p>Everything we do boils down to delivering two ultimate metrics: <span className="text-white">time</span> and <span className="text-white">performance</span>.</p>
+          <div className="space-y-6 text-sm md:text-base tracking-wide text-white/50 font-light leading-relaxed max-w-lg mx-auto">
+            <p>We leverage technology to return time to society.</p>
+            <p className="text-white/60">We audit. We eliminate processes.</p>
+            <p>Every implementation optimizes strictly for <span className="text-white/90">time</span> and <span className="text-white/90">performance</span>.</p>
           </div>
         </motion.div>
 
@@ -276,35 +243,39 @@ export default function Home() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-24 flex flex-col items-center"
+          transition={{ delay: 0.3 }}
+          className="mt-32 flex flex-col items-center"
         >
-          <p className="text-white/20 text-xs tracking-[0.3em] uppercase mb-8">How?</p>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-white/30 to-transparent" />
+          <div className="w-[1px] h-24 bg-gradient-to-b from-white/20 to-transparent relative overflow-hidden">
+            <motion.div
+              animate={{ y: [-20, 96] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+              className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-transparent via-white/40 to-transparent"
+            />
+          </div>
         </motion.div>
       </section>
 
       {/* Body Content - Units */}
-      <section id="units" className="relative z-20 min-h-screen px-6 pb-24 pt-12 bg-transparent border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 pt-12">
+      <section id="units" className="relative z-20 px-6 pb-24 bg-[#050505]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 relative z-10 pt-12">
             {units.map((unit, i) => (
               <motion.div
                 key={unit.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`relative group rounded-3xl p-8 md:p-10 bg-white/[0.02] border border-white/[0.05] overflow-hidden hover:bg-white/[0.04] transition-all duration-700 hover:border-white/10 shadow-lg`}
+                className="relative group p-8 md:p-10 border-t border-white/[0.03] transition-colors duration-500 hover:bg-white/[0.01]"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${unit.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-                <div className="relative z-10 flex flex-col h-full justify-between gap-12">
-                  <div className="p-4 bg-white/5 rounded-2xl w-fit backdrop-blur-md border border-white/5 group-hover:scale-110 transition-transform duration-500">
-                    <unit.icon size={28} className="text-white/80 group-hover:text-white transition-colors" />
+                <div className="relative z-10 flex flex-col h-full gap-8">
+                  <div className="text-white/30 group-hover:text-white/60 transition-colors">
+                    <unit.icon strokeWidth={1} size={32} />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-medium mb-3 text-white/90 group-hover:text-white transition-colors">{unit.title}</h3>
-                    <p className="text-white/50 font-light leading-relaxed group-hover:text-white/70 transition-colors">{unit.description}</p>
+                    <h3 className="text-xl font-light tracking-wide mb-3 text-white/80 group-hover:text-white transition-colors">{unit.title}</h3>
+                    <p className="text-white/40 font-light text-sm leading-relaxed tracking-wide group-hover:text-white/50 transition-colors">{unit.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -314,20 +285,20 @@ export default function Home() {
       </section>
 
       {/* Pricing */}
-      <section className="relative z-20 px-6 py-32 bg-transparent text-center flex flex-col items-center justify-center border-t border-white/5 pb-64">
+      <section className="relative z-20 px-6 py-48 bg-[#050505] text-center flex flex-col items-center justify-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <p className="text-white/30 text-xs tracking-[0.3em] uppercase">Pricing Philosophy</p>
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
-            Strictly on the value generated.
+          <p className="text-white/30 text-[10px] tracking-[0.3em] uppercase">Pricing Strategy</p>
+          <h2 className="text-2xl md:text-4xl font-light tracking-wide text-white/90">
+            Priced strictly on value generated.
           </h2>
-          <p className="text-xl md:text-2xl text-white/50 font-light leading-relaxed pt-6 border-t border-white/10">
-            If we elevate your performance and give you back your time, we win together. No bloated retainers, no hourly billing padding. Pure alignment.
+          <p className="text-sm md:text-base text-white/40 font-light leading-relaxed tracking-wide">
+            If we elevate your performance and give you back your time, we win together. Pure alignment.
           </p>
         </motion.div>
       </section>
