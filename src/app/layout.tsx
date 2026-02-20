@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   description: "Scalable, secure, and highly available architecture designed for the future.",
   icons: {
     icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "Hike | Elevate the Enterprise",
+    description: "Scalable, secure, and highly available architecture designed for the future.",
+    images: ["/favicon.png"],
   },
 };
 
