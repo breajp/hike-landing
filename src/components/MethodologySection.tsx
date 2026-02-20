@@ -46,7 +46,7 @@ export default function MethodologySection() {
                             opacity: [0.1, 0.8, 0.1],
                             borderColor: ["rgba(59,130,246,0.1)", "rgba(59,130,246,0.5)", "rgba(59,130,246,0.1)"]
                         }}
-                        transition={{ repeat: Infinity, duration: 4, delay: 3, ease: "easeInOut" }}
+                        transition={{ repeat: Infinity, duration: 6, delay: 4.5, ease: "easeInOut" }}
                         className="absolute w-[95%] h-[95%] rounded-full border bg-gradient-to-tr from-blue-600/5 to-transparent blur-sm shadow-[0_0_50px_rgba(37,99,235,0.05)]"
                     />
 
@@ -56,7 +56,7 @@ export default function MethodologySection() {
                             opacity: [0.2, 1, 0.2],
                             borderColor: ["rgba(59,130,246,0.2)", "rgba(59,130,246,0.6)", "rgba(59,130,246,0.2)"]
                         }}
-                        transition={{ repeat: Infinity, duration: 4, delay: 2, ease: "easeInOut" }}
+                        transition={{ repeat: Infinity, duration: 6, delay: 3, ease: "easeInOut" }}
                         className="absolute w-[75%] h-[75%] rounded-full border bg-gradient-to-tr from-blue-500/5 to-transparent shadow-[inset_0_0_40px_rgba(59,130,246,0.1)]"
                     />
 
@@ -66,7 +66,7 @@ export default function MethodologySection() {
                             opacity: [0.3, 1, 0.3],
                             borderColor: ["rgba(34,211,238,0.3)", "rgba(34,211,238,0.8)", "rgba(34,211,238,0.3)"]
                         }}
-                        transition={{ repeat: Infinity, duration: 4, delay: 1, ease: "easeInOut" }}
+                        transition={{ repeat: Infinity, duration: 6, delay: 1.5, ease: "easeInOut" }}
                         className="absolute w-[55%] h-[55%] rounded-full border bg-gradient-to-tr from-cyan-500/5 to-transparent shadow-[inset_0_0_30px_rgba(34,211,238,0.1)]"
                     />
 
@@ -78,7 +78,7 @@ export default function MethodologySection() {
                                 opacity: [0.3, 1, 0.3],
                                 scale: [1, 1.2, 1]
                             }}
-                            transition={{ repeat: Infinity, duration: 4, delay: 0, ease: "easeInOut" }}
+                            transition={{ repeat: Infinity, duration: 6, delay: 0, ease: "easeInOut" }}
                             className="absolute -inset-4 bg-gradient-to-tr from-blue-600 via-cyan-400 to-indigo-600 blur-[20px]"
                         />
                     </div>
@@ -104,8 +104,8 @@ export default function MethodologySection() {
                             }}
                             transition={{
                                 repeat: Infinity,
-                                duration: 4,
-                                delay: i * 1,
+                                duration: 6,
+                                delay: i * 1.5,
                                 ease: "easeInOut"
                             }}
                             className={cn("absolute flex flex-col items-center", step.pos)}
