@@ -24,7 +24,7 @@ export default function MethodologySection() {
 
             <div className="relative w-[320px] h-[320px] md:w-[600px] md:h-[600px] flex items-center justify-center mt-10 md:mt-0">
                 {/* Ambient Glows simulating photo 2 */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-600/30 via-pink-600/20 to-emerald-600/10 blur-[60px] md:blur-[100px] mix-blend-screen" />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-600/30 via-blue-600/20 to-indigo-600/10 blur-[60px] md:blur-[100px] mix-blend-screen" />
                 <div className="absolute inset-4 md:inset-8 rounded-full bg-[#080808] z-10 shadow-[inset_-20px_-20px_80px_rgba(255,255,255,0.03)]" />
 
                 {/* SVG Rings Desktop */}
