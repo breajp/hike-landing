@@ -23,6 +23,36 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
 html {
   scrollbar-width: none;
+}
+
+/* Glassmorphism Fixes & Effects */
+.glass-effect {
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+}
+
+.mask-image-fade {
+  mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+}
+
+/* Animations */
+@keyframes floating {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(100px, 50px) scale(1.1);
+  }
+}
+
+.animate-floating {
+  animation: floating 20s infinite alternate;
+}
+
+.animate-floating-reverse {
+  animation: floating 25s infinite alternate-reverse;
 }
