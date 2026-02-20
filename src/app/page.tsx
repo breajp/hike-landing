@@ -17,6 +17,7 @@ import MetricsSection from "@/components/MetricsSection";
 import PricingSection from "@/components/PricingSection";
 import EngagementModels from "@/components/EngagementModels";
 import MarketReality from "@/components/MarketReality";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -198,6 +199,7 @@ export default function Home() {
 
       {/* Pricing */}
       <PricingSection />
+      <Footer />
     </main>
   );
 }

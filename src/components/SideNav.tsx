@@ -7,10 +7,11 @@ const sections = [
     { id: "home", label: "Inicio" },
     { id: "reality", label: "Realidad" },
     { id: "philosophy", label: "Misión" },
-    { id: "clients", label: "Clientes" },
+    { id: "clients", label: "Alianzas" },
     { id: "stack", label: "Stack" },
-    { id: "story", label: "Nuestra Historia" },
     { id: "methodology", label: "Método" },
+    { id: "engagement", label: "Modelos" },
+    { id: "story", label: "Historia" },
     { id: "units", label: "Unidades" },
     { id: "pricing", label: "Pricing" }
 ];
