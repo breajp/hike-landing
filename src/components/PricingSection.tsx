@@ -24,7 +24,7 @@ export default function PricingSection() {
                         Priceamos estrictamente sobre el valor neto generado.
                     </p>
                     <p className="text-xs md:text-lg lg:text-xl text-white/40 font-light leading-relaxed max-w-3xl mt-4">
-                        Auditamos tu escenario y definimos objetivos claros. Si nuestra tecnología e infraestructura logran optimizar procesos y escalar tu performance, ganamos juntos.
+                        Medimos el valor generado calculando el tiempo anual ahorrado, traducido a capital operativo. Nuestro fee promedio representa una fracción (aprox. 25%) del valor neto capturado.
                     </p>
                 </div>
             </motion.div>

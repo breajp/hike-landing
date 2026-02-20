@@ -1,35 +1,64 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Link from "next/link";
 
 export default function ManifestoSection() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start center", "end center"]
+    });
+
+    const opacity1 = useTransform(scrollYProgress, [0, 0.2], [0.15, 1]);
+    const opacity2 = useTransform(scrollYProgress, [0.3, 0.5], [0.15, 1]);
+    const opacity3 = useTransform(scrollYProgress, [0.6, 0.8], [0.15, 1]);
+
     return (
-        <section className="relative z-20 py-32 lg:py-48 px-6 lg:px-12 bg-transparent flex flex-col items-center justify-center overflow-hidden">
-            <div className="max-w-5xl mx-auto text-center relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 1 }}
-                    className="space-y-8"
-                >
+        <section ref={containerRef} className="relative z-20 bg-transparent overflow-hidden h-[200vh]">
+            <div className="max-w-5xl mx-auto text-center sticky top-0 h-screen flex flex-col items-center justify-center px-6 lg:px-12 z-10 w-full">
+                <div className="space-y-6 w-full">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
                         <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                         <span className="text-white/60 text-xs font-mono tracking-widest uppercase">El Desafío</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white/90 leading-tight">
-                        El <span className="text-white font-medium italic">90%</span> de la IA corporativa hoy son juguetes frágiles.
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight text-white/90 leading-tight">
+                        Solo el <span className="text-white font-medium italic">10%</span> logra escalar con Agentes IA.
                     </h2>
 
-                    <p className="text-xl md:text-3xl text-white/50 font-light leading-relaxed tracking-wide max-w-4xl mx-auto mt-8">
-                        No somos una agencia de wrappers. Construimos <strong className="font-normal text-white/90">infraestructura cognitiva pesada</strong> de grado producción. Pasamos de las pruebas de concepto a sistemas autónomos que redefinen tus márgenes operativos.
-                    </p>
-                </motion.div>
+                    {/* McKinsey Link */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <Link
+                            href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+                            target="_blank"
+                            className="inline-block mt-4 text-white/40 hover:text-white/80 transition-colors text-[10px] sm:text-xs font-mono tracking-widest uppercase border-b border-white/20 pb-1"
+                        >
+                            ↘ Fuente: McKinsey & Company
+                        </Link>
+                    </motion.div>
+
+                    <div className="text-lg md:text-3xl lg:text-4xl text-white font-light leading-relaxed tracking-wide max-w-4xl mx-auto mt-16 space-y-6 md:space-y-8">
+                        <motion.p style={{ opacity: opacity1 }} className="transition-opacity duration-300">
+                            La barrera no es la tecnología, es la <strong className="font-normal text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">adopción</strong>.
+                        </motion.p>
+                        <motion.p style={{ opacity: opacity2 }} className="transition-opacity duration-300">
+                            El fracaso ocurre al depender del talento individual en lugar de instalar un proceso colectivo.
+                        </motion.p>
+                        <motion.p style={{ opacity: opacity3 }} className="transition-opacity duration-300">
+                            Nosotros intervenimos ahí: construimos la infraestructura para que la IA penetre y escale en toda la organización.
+                        </motion.p>
+                    </div>
+                </div>
             </div>
 
             {/* Ambient Background Glow */}
-            <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
+            <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center h-screen sticky top-0">
                 <div className="w-[800px] h-[400px] bg-blue-600/10 blur-[120px] rounded-[100%] mix-blend-screen" />
             </div>
         </section>

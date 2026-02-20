@@ -38,11 +38,11 @@ export default function PartnershipsSection() {
                         <div className="absolute w-[200px] h-[200px] rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-all duration-1000 mix-blend-screen pointer-events-none bg-blue-500/40 -top-20 -left-20" />
 
                         <div className="flex-1 flex flex-col items-center justify-center w-full">
-                            <h3 className="text-5xl lg:text-7xl font-light text-white mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover:scale-105">{'>'}95<span className="text-3xl lg:text-4xl text-white/50">%</span></h3>
+                            <h3 className="text-4xl lg:text-5xl font-light text-white mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover:scale-105">Talento ITBA</h3>
                         </div>
-                        <h4 className="text-xl font-light tracking-wide text-white/90 mb-3 mt-auto">Ingenieros Puros</h4>
+                        <h4 className="text-xl font-light tracking-wide text-white/90 mb-3 mt-auto">Academic Pipeline</h4>
                         <p className="text-white/50 font-light text-sm leading-relaxed tracking-wide">
-                            Nuestro equipo está compuesto casi en su totalidad por ingenieros de software, data scientists y arquitectos cloud. Cero ruido burocrático, 100% makers.
+                            Somos profesores en ITBA y Universidad Austral. Hunteamos el talento más brillante directamente desde las aulas antes de que lleguen al mercado.
                         </p>
                     </motion.div>
 
