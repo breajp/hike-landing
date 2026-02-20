@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud } from "lucide-react";
+import Image from "next/image";
 
 export default function PartnershipsSection() {
     return (
@@ -37,8 +37,13 @@ export default function PartnershipsSection() {
                         <div className="absolute inset-x-0 h-[1px] top-0 bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:via-blue-500/50 transition-all duration-700" />
                         <div className="absolute w-[200px] h-[200px] rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-all duration-1000 mix-blend-screen pointer-events-none bg-blue-500/40 -top-20 -left-20" />
 
-                        <div className="flex-1 flex flex-col items-center justify-center w-full">
-                            <h3 className="text-4xl lg:text-5xl font-light text-white mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform duration-500 group-hover:scale-105">Talento ITBA</h3>
+                        <div className="flex-1 flex flex-col items-center justify-center w-full h-20 mb-6 relative transition-transform duration-500 group-hover:scale-105">
+                            <Image
+                                src="https://campusitba.s3.us-east-1.amazonaws.com/campusitba/wp-content/uploads/2023/11/Marca-ITBA-Color-Blanco-ALTA.png"
+                                alt="ITBA Logo"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
                         <h4 className="text-xl font-light tracking-wide text-white/90 mb-3 mt-auto">Academic Pipeline</h4>
                         <p className="text-white/50 font-light text-sm leading-relaxed tracking-wide">
@@ -57,8 +62,13 @@ export default function PartnershipsSection() {
                         <div className="absolute inset-x-0 h-[1px] top-0 bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:via-cyan-500/50 transition-all duration-700" />
                         <div className="absolute -top-10 -right-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-[60px] pointer-events-none mix-blend-screen opacity-50 group-hover:opacity-100 transition-all duration-1000" />
 
-                        <div className="flex-1 flex flex-col justify-center items-center h-20 mb-6 w-full transition-transform duration-500 group-hover:scale-105">
-                            <span className="font-serif font-black tracking-tight text-3xl lg:text-4xl text-white opacity-90">McKinsey</span>
+                        <div className="flex-1 flex flex-col justify-center items-center h-20 mb-6 w-full relative transition-transform duration-500 group-hover:scale-105">
+                            <Image
+                                src="https://creativestories808.com/wp-content/uploads/2024/09/14-1.png"
+                                alt="McKinsey Logo"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
                         <h4 className="text-xl font-light tracking-wide text-white/90 mb-3 mt-auto">Designated Partners</h4>
                         <p className="text-white/50 font-light text-sm leading-relaxed tracking-wide">
@@ -77,9 +87,13 @@ export default function PartnershipsSection() {
                         <div className="absolute inset-x-0 h-[1px] top-0 bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:via-indigo-500/50 transition-all duration-700" />
                         <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-[60px] pointer-events-none mix-blend-screen opacity-50 group-hover:opacity-100 transition-all duration-1000" />
 
-                        <div className="flex-1 flex items-center justify-center gap-3 h-20 mb-6 w-full transition-transform duration-500 group-hover:scale-105">
-                            <Cloud className="w-8 h-8 text-white opacity-90" strokeWidth={1.5} />
-                            <span className="font-sans font-medium tracking-tight text-2xl lg:text-3xl text-white opacity-90">Google Cloud</span>
+                        <div className="flex-1 flex items-center justify-center h-20 mb-6 w-full relative transition-transform duration-500 group-hover:scale-105">
+                            <Image
+                                src="https://lovelytics.com/wp-content/uploads/2025/08/Google-Cloud-Logo-1024x267-1.webp"
+                                alt="Google Cloud Logo"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
                         <h4 className="text-xl font-light tracking-wide text-white/90 mb-3 mt-auto">Official Partners</h4>
                         <p className="text-white/50 font-light text-sm leading-relaxed tracking-wide">
