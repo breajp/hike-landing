@@ -53,10 +53,10 @@ export default function Home() {
             >
               <div className="w-20 h-20 md:w-32 md:h-32 relative flex items-center justify-center">
                 <Image
-                  src="/images/hike_logo.png"
+                  src="https://files.slack.com/files-pri/T01Q7LJG952-F0AGBK8M7DJ/1080x1080-06.png?pub_secret=8eece3088c"
                   alt="Hike Logo"
                   fill
-                  className="object-contain opacity-90 filter grayscale contrast-125"
+                  className="object-contain opacity-95 hover:opacity-100 transition-opacity"
                 />
               </div>
             </motion.div>

@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'dpbvj4a9anukr.cloudfront.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'files.slack.com',
+      },
     ],
   },
 };
