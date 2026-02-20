@@ -57,15 +57,15 @@ function TimelineStep({ year, name, desc, link, image, align }: { year: string, 
       {/* Content Side */}
       <div className={cn(
         "w-full md:w-1/2 flex flex-col pl-10 md:pl-0",
-        isLeft ? "md:pr-12 lg:pr-24 md:items-end md:text-right" : "md:ml-auto md:pl-12 lg:pl-24 md:items-start md:text-left"
+        isLeft ? "md:pr-12 lg:pr-32 xl:pr-40 md:items-end md:text-right" : "md:ml-auto md:pl-12 lg:pl-32 xl:pl-40 md:items-start md:text-left"
       )}>
-        <div className="text-white/60 font-mono text-[10px] md:text-sm tracking-[0.2em] mb-4 md:mt-2">
+        <div className="text-white/60 font-mono text-[10px] md:text-sm lg:text-base tracking-[0.2em] mb-4 md:mt-2">
           {year}
         </div>
 
-        <div className={cn("flex flex-col gap-4 w-full", isLeft ? "md:items-end md:text-right" : "md:items-start md:text-left")}>
+        <div className={cn("flex flex-col gap-4 lg:gap-6 w-full", isLeft ? "md:items-end md:text-right" : "md:items-start md:text-left")}>
           {link ? (
-            <a href={link} target="_blank" rel="noopener noreferrer" className="block w-20 h-20 md:w-28 md:h-28 relative shrink-0">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="block w-20 h-20 md:w-32 md:h-32 lg:w-48 lg:h-48 relative shrink-0">
               <Image
                 src={image}
                 alt={name}
@@ -74,7 +74,7 @@ function TimelineStep({ year, name, desc, link, image, align }: { year: string, 
               />
             </a>
           ) : (
-            <div className="w-20 h-20 md:w-28 md:h-28 relative shrink-0">
+            <div className="w-20 h-20 md:w-32 md:h-32 lg:w-48 lg:h-48 relative shrink-0">
               <Image
                 src={image}
                 alt={name}
@@ -84,9 +84,9 @@ function TimelineStep({ year, name, desc, link, image, align }: { year: string, 
             </div>
           )}
 
-          <div className="flex flex-col mt-2">
-            <h3 className="text-xl md:text-2xl tracking-wide font-light mb-2 text-white/90">{name}</h3>
-            <p className="text-white/40 font-light text-xs md:text-sm leading-relaxed tracking-wide max-w-sm">
+          <div className="flex flex-col mt-2 lg:mt-4">
+            <h3 className="text-xl md:text-3xl lg:text-4xl tracking-wide font-light mb-2 lg:mb-4 text-white/90">{name}</h3>
+            <p className="text-white/40 font-light text-xs md:text-sm lg:text-base leading-relaxed tracking-wide max-w-sm lg:max-w-md">
               {desc}
             </p>
           </div>
@@ -175,8 +175,8 @@ export default function Home() {
       </section>
 
       {/* The Story / Timeline */}
-      <section id="story" className="relative z-20 px-4 pt-4 pb-12 overflow-hidden bg-[#050505]">
-        <div className="max-w-4xl mx-auto relative">
+      <section id="story" className="relative z-20 px-6 lg:px-12 pt-4 pb-12 overflow-hidden bg-[#050505]">
+        <div className="max-w-6xl xl:max-w-7xl mx-auto relative">
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -228,18 +228,18 @@ export default function Home() {
       </section>
 
       {/* The Vision / Philosophy */}
-      <section className="relative z-20 min-h-[60vh] flex flex-col items-center justify-center px-6 py-24 max-w-4xl mx-auto text-center mt-4 bg-[#050505]">
+      <section className="relative z-20 min-h-[60vh] flex flex-col items-center justify-center px-6 lg:px-12 py-24 max-w-6xl xl:max-w-7xl mx-auto text-center mt-4 bg-[#050505]">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="space-y-12"
+          className="space-y-12 lg:space-y-20 w-full"
         >
-          <h2 className="text-2xl md:text-4xl font-light tracking-wide text-white/80 leading-relaxed italic mx-auto max-w-3xl">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wide text-white/80 leading-relaxed lg:leading-tight italic mx-auto max-w-5xl">
             "Fabricar tiempo hasta que el humano vuelva a ser humano."
           </h2>
 
-          <div className="space-y-6 text-sm md:text-base tracking-wide text-white/50 font-light leading-relaxed max-w-lg mx-auto">
+          <div className="space-y-6 lg:space-y-8 text-sm md:text-base lg:text-xl tracking-wide text-white/50 font-light leading-relaxed max-w-3xl mx-auto">
             <p>Usamos la tecnología de forma absoluta para devolverle tiempo a la sociedad.</p>
             <p className="text-white/60">Auditamos y eliminamos procesos innecesarios.</p>
             <p>Toda implementación persigue estrictamente dos métricas finales: <span className="text-white/90">tiempo</span> y <span className="text-white/90">performance</span>.</p>
@@ -265,9 +265,9 @@ export default function Home() {
       </section>
 
       {/* Body Content - Units */}
-      <section id="units" className="relative z-20 px-6 pb-24 bg-[#050505] pt-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 relative z-10 pt-4">
+      <section id="units" className="relative z-20 px-6 lg:px-12 pb-24 bg-[#050505] pt-12">
+        <div className="max-w-6xl xl:max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 xl:gap-12 relative z-10 pt-4">
             {units.map((unit, i) => (
               <motion.div
                 key={unit.title}
@@ -277,13 +277,13 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative group p-8 md:p-10 border-t border-white/[0.03] transition-colors duration-500 hover:bg-white/[0.02]"
               >
-                <div className="relative z-10 flex flex-col h-full gap-8">
+                <div className="relative z-10 flex flex-col h-full gap-8 lg:gap-12">
                   <div className="text-white/30 group-hover:text-white/60 transition-colors">
-                    <unit.icon strokeWidth={1} size={32} />
+                    <unit.icon strokeWidth={1} className="w-8 h-8 lg:w-12 lg:h-12" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-light tracking-wide mb-3 text-white/80 group-hover:text-white transition-colors">{unit.title}</h3>
-                    <p className="text-white/40 font-light text-sm leading-relaxed tracking-wide group-hover:text-white/50 transition-colors">{unit.description}</p>
+                    <h3 className="text-xl lg:text-3xl font-light tracking-wide mb-3 lg:mb-6 text-white/80 group-hover:text-white transition-colors">{unit.title}</h3>
+                    <p className="text-white/40 font-light text-sm lg:text-lg lg:leading-loose leading-relaxed tracking-wide group-hover:text-white/50 transition-colors">{unit.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -293,19 +293,19 @@ export default function Home() {
       </section>
 
       {/* Pricing */}
-      <section className="relative z-20 px-6 py-40 bg-[#050505] text-center flex flex-col items-center justify-center mt-12 pb-64">
+      <section className="relative z-20 px-6 lg:px-12 py-40 bg-[#050505] text-center flex flex-col items-center justify-center mt-12 pb-64">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-lg mx-auto space-y-10"
+          className="max-w-3xl xl:max-w-4xl mx-auto space-y-10 lg:space-y-14"
         >
-          <p className="text-white/30 text-[10px] tracking-[0.3em] uppercase">Estrategia de Pricing</p>
-          <h2 className="text-2xl md:text-3xl font-light tracking-wide text-white/90">
+          <p className="text-white/30 text-[10px] md:text-xs lg:text-sm tracking-[0.3em] uppercase">Estrategia de Pricing</p>
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-light tracking-wide text-white/90 leading-tight">
             Priceamos sobre el valor generado.
           </h2>
-          <p className="text-sm text-white/40 font-light leading-relaxed tracking-wide">
+          <p className="text-sm md:text-xl lg:text-2xl text-white/40 font-light leading-relaxed lg:leading-loose tracking-wide border-t border-white/[0.05] pt-10 mt-10">
             Si elevamos tu performance y te devolvemos tu tiempo, ganamos juntos. Pura alineación.
           </p>
         </motion.div>
