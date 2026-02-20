@@ -196,9 +196,6 @@ export default function Home() {
       {/* 7. Body Content - Units */}
       <UnitsSection />
 
-      {/* 7.5 Asymmetrical Impact (Metrics) */}
-      <MetricsSection />
-
       {/* Pricing */}
       <PricingSection />
     </main>

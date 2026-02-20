@@ -37,7 +37,7 @@ export default function PartnershipsSection() {
                         <div className="absolute inset-x-0 h-[1px] top-0 bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:via-blue-500/50 transition-all duration-700" />
                         <div className="absolute w-[200px] h-[200px] rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-all duration-1000 mix-blend-screen pointer-events-none bg-blue-500/40 -top-20 -left-20" />
 
-                        <div className="flex-1 flex flex-col items-center justify-center w-full h-32 mb-6 relative transition-transform duration-500 group-hover:scale-110">
+                        <div className="flex-1 flex flex-col items-center justify-center w-full h-48 mb-8 relative transition-transform duration-500 group-hover:scale-110">
                             <Image
                                 src="https://campusitba.s3.us-east-1.amazonaws.com/campusitba/wp-content/uploads/2023/11/Marca-ITBA-Color-Blanco-ALTA.png"
                                 alt="ITBA Logo"
@@ -62,7 +62,7 @@ export default function PartnershipsSection() {
                         <div className="absolute inset-x-0 h-[1px] top-0 bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:via-cyan-500/50 transition-all duration-700" />
                         <div className="absolute -top-10 -right-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-[60px] pointer-events-none mix-blend-screen opacity-50 group-hover:opacity-100 transition-all duration-1000" />
 
-                        <div className="flex-1 flex flex-col justify-center items-center h-32 mb-6 w-full relative transition-transform duration-500 group-hover:scale-110">
+                        <div className="flex-1 flex flex-col justify-center items-center h-48 mb-8 w-full relative transition-transform duration-500 group-hover:scale-110">
                             <Image
                                 src="https://www.b20southafrica.org/wp-content/uploads/2025/10/McKinsey-Logo-White.png"
                                 alt="McKinsey Logo"
@@ -87,7 +87,7 @@ export default function PartnershipsSection() {
                         <div className="absolute inset-x-0 h-[1px] top-0 bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:via-indigo-500/50 transition-all duration-700" />
                         <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-[60px] pointer-events-none mix-blend-screen opacity-50 group-hover:opacity-100 transition-all duration-1000" />
 
-                        <div className="flex-1 flex items-center justify-center h-32 mb-6 w-full relative transition-transform duration-500 group-hover:scale-110">
+                        <div className="flex-1 flex items-center justify-center h-48 mb-8 w-full relative transition-transform duration-500 group-hover:scale-110">
                             <Image
                                 src="https://lovelytics.com/wp-content/uploads/2025/08/Google-Cloud-Logo-1024x267-1.webp"
                                 alt="Google Cloud Logo"

@@ -11,7 +11,6 @@ const sections = [
     { id: "stack", label: "Stack" },
     { id: "methodology", label: "Método" },
     { id: "units", label: "Unidades" },
-    { id: "impact", label: "Impacto" },
     { id: "pricing", label: "Pricing" }
 ];
 
