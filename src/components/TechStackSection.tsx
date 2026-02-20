@@ -22,7 +22,7 @@ export default function TechStackSection() {
                 <div className="md:w-1/3 space-y-4">
                     <p className="text-white/30 text-[10px] tracking-[0.3em] uppercase">El Arsenal Técnico</p>
                     <h3 className="text-2xl md:text-4xl font-light tracking-wide text-white/90">
-                        Deep Tech.<br />Cero Low-Code.
+                        Our Tech Stack.
                     </h3>
                     <p className="text-white/50 font-light text-sm md:text-base leading-relaxed">
                         Desplegamos el verdadero stack de ingeniería utilizado por las top-tier tech companies.
