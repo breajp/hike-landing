@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'lovelytics.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.b20southafrica.org',
+      },
     ],
   },
 };
