@@ -100,12 +100,7 @@ export default function Home() {
       {/* 3. The Vision / Philosophy (Pain & Mission) */}
       <section id="philosophy" className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-32 max-w-7xl mx-auto">
 
-        {/* Tech decorative text top center/right */}
-        <div className="absolute top-24 right-12 lg:right-32 text-white/30 font-mono text-[10px] hidden md:flex flex-col gap-1 items-end">
-          <span>{'//'}</span>
-          <span>{'//'}</span>
-          <span>{'//'}</span>
-        </div>
+
 
         <div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8 min-h-[600px]">
 
@@ -175,8 +170,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Social Proof - Clients */}
-      <ClientsGrid />
+      {/* 2 & 4. Social Proof - Clients & Partnerships */}
+      <div id="clients">
+        <ClientsGrid />
+        <PartnershipsSection />
+      </div>
 
       {/* 4.5 The Arsenal / Tech Stack */}
       <TechStackSection />

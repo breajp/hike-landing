@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function MetricsSection() {
     return (
-        <section className="relative z-20 py-32 px-6 lg:px-12 bg-transparent overflow-hidden">
+        <section id="impact" className="relative z-20 py-32 px-6 lg:px-12 bg-transparent overflow-hidden">
             <div className="max-w-6xl xl:max-w-7xl mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}

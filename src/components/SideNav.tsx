@@ -7,8 +7,10 @@ const sections = [
     { id: "home", label: "Inicio" },
     { id: "philosophy", label: "Misión" },
     { id: "clients", label: "Clientes" },
+    { id: "stack", label: "Stack" },
     { id: "story", label: "Historia" },
     { id: "units", label: "Unidades" },
+    { id: "impact", label: "Impacto" },
     { id: "pricing", label: "Pricing" }
 ];
 
@@ -18,16 +20,18 @@ export default function SideNav() {
     useEffect(() => {
         const observerOptions = {
             root: null,
-            rootMargin: '-40% 0px -40% 0px',
-            threshold: 0
+            rootMargin: '-30% 0px -30% 0px',
+            threshold: 0.1
         };
 
         const observerCallback = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
-                }
-            });
+            const visibleEntries = entries.filter(e => e.isIntersecting);
+            if (visibleEntries.length > 0) {
+                const highest = visibleEntries.reduce((prev, curr) =>
+                    curr.intersectionRatio > prev.intersectionRatio ? curr : prev
+                );
+                setActiveSection(highest.target.id);
+            }
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);

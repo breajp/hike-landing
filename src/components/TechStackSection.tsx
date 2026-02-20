@@ -16,7 +16,7 @@ const technologies = [
 
 export default function TechStackSection() {
     return (
-        <section className="relative z-20 py-24 bg-transparent border-y border-white/[0.02] overflow-hidden">
+        <section id="stack" className="relative z-20 py-24 bg-transparent border-y border-white/[0.02] overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-12">
 
                 <div className="md:w-1/3 space-y-4">
