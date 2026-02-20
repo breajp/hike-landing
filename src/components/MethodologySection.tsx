@@ -1,6 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+const steps = [
+    { id: 1, label: "auditar", color: "text-cyan-400", glow: "shadow-[0_0_20px_rgba(34,211,238,0.5)]", pos: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" },
+    { id: 2, label: "conectar", color: "text-blue-400", glow: "shadow-[0_0_20px_rgba(59,130,246,0.3)]", pos: "top-[28%]" },
+    { id: 3, label: "automatizar", color: "text-blue-300", glow: "shadow-[0_0_20px_rgba(147,197,253,0.2)]", pos: "top-[18%]" },
+    { id: 4, label: "escalar", color: "text-white/40", glow: "shadow-[0_0_20px_rgba(255,255,255,0.1)]", pos: "top-[8%]" }
+];
 
 export default function MethodologySection() {
     return (
@@ -44,7 +52,11 @@ export default function MethodologySection() {
                     {/* Level 1 - The Core Torus/Glow */}
                     <div className="absolute w-[35%] h-[35%] rounded-full z-20 overflow-hidden">
                         <div className="absolute inset-0 bg-[#020202] rounded-full z-10" />
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 via-cyan-400 to-indigo-600 blur-[20px] opacity-40 animate-pulse" />
+                        <motion.div
+                            animate={{ opacity: [0.1, 0.4, 0.1] }}
+                            transition={{ repeat: Infinity, duration: 4 }}
+                            className="absolute -inset-4 bg-gradient-to-tr from-blue-600 via-cyan-400 to-indigo-600 blur-[20px]"
+                        />
                     </div>
                 </div>
 
@@ -58,33 +70,30 @@ export default function MethodologySection() {
 
                 {/* Text Levels with high-contrast shadows */}
                 <div className="z-40 absolute inset-0 flex flex-col items-center justify-center text-white pointer-events-none">
-                    {/* Step 1 - Inner */}
-                    <motion.div
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        className="absolute flex flex-col items-center"
-                    >
-                        <span className="font-mono text-[10px] text-cyan-400/80 mb-1 tracking-widest drop-shadow-[0_0_10px_rgba(34,211,238,1)]">1</span>
-                        <span className="font-light tracking-[0.3em] text-lg md:text-2xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">auditar</span>
-                    </motion.div>
-
-                    {/* Step 2 */}
-                    <div className="absolute top-[28%] md:top-[28%] flex flex-col items-center">
-                        <span className="font-mono text-[9px] text-white/30 mb-1 tracking-widest">2</span>
-                        <span className="font-extralight tracking-[0.2em] text-sm md:text-lg text-white/60">conectar</span>
-                    </div>
-
-                    {/* Step 3 */}
-                    <div className="absolute top-[18%] md:top-[18%] flex flex-col items-center">
-                        <span className="font-mono text-[9px] text-white/20 mb-1 tracking-widest">3</span>
-                        <span className="font-extralight tracking-[0.2em] text-sm md:text-lg text-white/40">automatizar</span>
-                    </div>
-
-                    {/* Step 4 */}
-                    <div className="absolute top-[8%] md:top-[8%] flex flex-col items-center">
-                        <span className="font-mono text-[9px] text-white/10 mb-1 tracking-widest">4</span>
-                        <span className="font-extralight tracking-[0.2em] text-sm md:text-lg text-white/20">escalar</span>
-                    </div>
+                    {steps.map((step, i) => (
+                        <motion.div
+                            key={step.id}
+                            animate={{
+                                opacity: [0.15, 1, 0.15],
+                                scale: [0.98, 1, 0.98],
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 8,
+                                delay: i * 2,
+                                ease: "easeInOut"
+                            }}
+                            className={cn("absolute flex flex-col items-center", step.pos)}
+                        >
+                            <span className="font-mono text-[10px] opacity-40 mb-1 tracking-widest">{step.id}</span>
+                            <span className={cn(
+                                "font-light tracking-[0.3em] text-lg md:text-2xl transition-all duration-500",
+                                i === 0 ? "text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" : "text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                            )}>
+                                {step.label}
+                            </span>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

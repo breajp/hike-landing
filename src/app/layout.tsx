@@ -13,16 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hike | Elevate the Enterprise",
+  title: "Hike | 17Sigma",
   description: "Scalable, secure, and highly available architecture designed for the future.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon_black.png",
+    apple: "/favicon_black.png",
   },
   openGraph: {
-    title: "Hike | Elevate the Enterprise",
+    title: "Hike | 17Sigma",
     description: "Scalable, secure, and highly available architecture designed for the future.",
-    images: ["/favicon.png"],
+    images: ["/favicon_black.png"],
   },
 };
 
