@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import BottomNav from "@/components/BottomNav";
-import { ArrowDown, Cloud, Code, Database, Bot, BrainCircuit, Zap } from "lucide-react";
+import { ArrowDown, Cloud, Database, Bot, BrainCircuit, Zap } from "lucide-react";
 
 const units = [
   {
@@ -250,31 +250,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transition block to scroll into Units cleanly */}
-      <section className="relative z-20 flex justify-center w-full bg-transparent pt-10">
-        <div className="w-[1px] h-24 bg-gradient-to-b from-white/30 to-transparent relative overflow-hidden">
-          <motion.div
-            animate={{ y: [-20, 96] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-            className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-transparent via-white to-transparent"
-          />
-        </div>
+      {/* The Vision / Philosophy */}
+      <section className="relative z-20 min-h-[80vh] flex flex-col items-center justify-center px-6 py-32 max-w-4xl mx-auto text-center border-t border-white/5 mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-12"
+        >
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white/90 leading-tight italic">
+              "Fabricar tiempo hasta que el humano vuelva a ser humano."
+            </h2>
+            <p className="text-white/30 text-sm tracking-widest uppercase">Our Core Philosophy</p>
+          </div>
+
+          <div className="space-y-6 text-xl md:text-2xl text-white/50 font-light leading-relaxed max-w-2xl mx-auto">
+            <p>Through the absolute leverage of technology, we give time back to society.</p>
+            <p className="text-white/70 font-normal">We audit. We eliminate processes.</p>
+            <p>Everything we do boils down to delivering two ultimate metrics: <span className="text-white">time</span> and <span className="text-white">performance</span>.</p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-24 flex flex-col items-center"
+        >
+          <p className="text-white/20 text-xs tracking-[0.3em] uppercase mb-8">How?</p>
+          <div className="w-[1px] h-16 bg-gradient-to-b from-white/30 to-transparent" />
+        </motion.div>
       </section>
 
       {/* Body Content - Units */}
-      <section id="units" className="relative z-20 min-h-screen px-6 pb-48 bg-transparent">
+      <section id="units" className="relative z-20 min-h-screen px-6 pb-24 pt-12 bg-transparent border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="mb-16 md:mb-24 text-center flex flex-col items-center"
-          >
-            <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-8">Our Capabilities</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 pt-12">
             {units.map((unit, i) => (
               <motion.div
                 key={unit.title}
@@ -298,6 +311,25 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="relative z-20 px-6 py-32 bg-transparent text-center flex flex-col items-center justify-center border-t border-white/5 pb-64">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto space-y-8"
+        >
+          <p className="text-white/30 text-xs tracking-[0.3em] uppercase">Pricing Philosophy</p>
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
+            Strictly on the value generated.
+          </h2>
+          <p className="text-xl md:text-2xl text-white/50 font-light leading-relaxed pt-6 border-t border-white/10">
+            If we elevate your performance and give you back your time, we win together. No bloated retainers, no hourly billing padding. Pure alignment.
+          </p>
+        </motion.div>
       </section>
 
       <BottomNav />
