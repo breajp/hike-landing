@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-function TimelineStep({ year, name, desc, link, image, align }: { year: string, name: string, desc: string, link?: string, image: string, align: 'left' | 'right' }) {
+function TimelineStep({ year, name, desc, link, align }: { year: string, name: string, desc: string, link?: string, align: 'left' | 'right' }) {
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -45,22 +45,16 @@ function TimelineStep({ year, name, desc, link, image, align }: { year: string, 
                     <div className={cn("absolute w-48 h-48 bg-white/5 rounded-full blur-[50px] pointer-events-none mix-blend-screen transition-all duration-700", isLeft ? "-top-10 -right-10 group-hover:bg-white/10" : "-top-10 -left-10 group-hover:bg-cyan-500/10")} />
 
                     {link ? (
-                        <a href={link} target="_blank" rel="noopener noreferrer" className="block w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 relative shrink-0">
-                            <Image
-                                src={image}
-                                alt={name}
-                                fill
-                                className="object-contain opacity-60 group-hover:opacity-100 transition-all group-hover:scale-110 duration-700 filter grayscale group-hover:grayscale-0"
-                            />
+                        <a href={link} target="_blank" rel="noopener noreferrer" className="block relative shrink-0">
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black italic uppercase tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,183,3,0.3)] transition-all group-hover:scale-105 duration-700 bg-clip-text text-transparent bg-gradient-to-br from-white to-white/60">
+                                {name}
+                            </h2>
                         </a>
                     ) : (
-                        <div className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 relative shrink-0">
-                            <Image
-                                src={image}
-                                alt={name}
-                                fill
-                                className="object-contain opacity-60 group-hover:opacity-100 transition-all group-hover:scale-110 duration-700 filter grayscale group-hover:grayscale-0"
-                            />
+                        <div className="relative shrink-0">
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black italic uppercase tracking-tighter text-white drop-shadow-[0_0_20px_rgba(255,183,3,0.3)] transition-all group-hover:scale-105 duration-700 bg-clip-text text-transparent bg-gradient-to-br from-white to-white/60">
+                                {name}
+                            </h2>
                         </div>
                     )}
 
@@ -115,7 +109,6 @@ export default function TimelineSection() {
                         name="ABN Digital"
                         desc="Construimos la infraestructura para escalar negocios digitales, dominando la estructuración de datos y medios a nivel operativo."
                         link="https://abndigital.com.ar/"
-                        image="/images/abn_logo.png"
                         align="right"
                     />
 
@@ -124,15 +117,13 @@ export default function TimelineSection() {
                         name="Detrics"
                         desc="Automatizamos el caos. Creamos un conector central de datos estructurando la comunicación de performance end-to-end."
                         link="https://detrics.io/es/"
-                        image="/images/detrics_logo.png"
                         align="left"
                     />
 
                     <TimelineStep
                         year="2025"
-                        name="El Ecosistema Hike"
+                        name="Hike"
                         desc="La convergencia definitiva. Interconectamos nube, inteligencia de datos y agentes autónomos escalando juntos."
-                        image="/images/hike_logo.png"
                         align="right"
                     />
                 </div>
