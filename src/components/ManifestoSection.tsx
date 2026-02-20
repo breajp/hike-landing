@@ -8,15 +8,15 @@ export default function ManifestoSection() {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 0.4", "end 0.6"]
+        offset: ["start 0.6", "end 0.4"]
     });
 
-    const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.35], [0.15, 1, 0.15]);
-    const opacity2 = useTransform(scrollYProgress, [0.35, 0.5, 0.65], [0.15, 1, 0.15]);
-    const opacity3 = useTransform(scrollYProgress, [0.65, 0.85, 1], [0.15, 1, 1]);
+    const opacity1 = useTransform(scrollYProgress, [0, 0.1, 0.25], [0.15, 1, 0.15]);
+    const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.5], [0.15, 1, 0.15]);
+    const opacity3 = useTransform(scrollYProgress, [0.45, 0.6, 1], [0.15, 1, 1]);
 
     return (
-        <section ref={containerRef} className="relative z-20 bg-transparent overflow-hidden h-[160vh]">
+        <section ref={containerRef} className="relative z-20 bg-transparent overflow-hidden h-[130vh]">
             <div className="max-w-5xl mx-auto text-center sticky top-0 h-screen flex flex-col items-center justify-center px-6 lg:px-12 z-10 w-full">
                 <div className="space-y-6 w-full">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
