@@ -46,7 +46,7 @@ export default function Home() {
           style={{ opacity, scale }}
           className="sticky top-0 h-screen flex flex-col justify-center items-center w-full"
         >
-          <div className="relative z-10 flex items-center justify-center gap-8 md:gap-32 px-6 w-full max-w-5xl mix-blend-difference">
+          <div className="relative z-10 flex items-center justify-center gap-8 md:gap-32 px-6 w-full max-w-5xl">
             {/* Hike Logo */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -59,7 +59,7 @@ export default function Home() {
                   src="https://files.slack.com/files-pri/T01Q7LJG952-F0AFYPPV46R/1080x1080-07__1_.png?pub_secret=d56c7f0913"
                   alt="Hike Logo"
                   fill
-                  className="object-contain opacity-95 hover:opacity-100 transition-opacity"
+                  className="object-contain opacity-100 transition-opacity"
                   priority
                 />
               </div>
