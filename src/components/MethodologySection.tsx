@@ -17,8 +17,8 @@ export default function MethodologySection() {
                     De la auditoría a la autonomía.
                 </h2>
                 <p className="text-white/40 text-sm md:text-base font-light max-w-lg mt-4">
-                    Un proceso sistemático de cuatro capas diseñado para penetrar en tu estructura,
-                    entender sus ineficiencias y automatizarlas.
+                    Un proceso sistemático de cuatro capas diseñado para rediseñar el <strong className="text-white/80 font-normal">core</strong> de tu operación,
+                    no su periferia. De la auditoría profunda a la autonomía total.
                 </p>
             </motion.div>
 

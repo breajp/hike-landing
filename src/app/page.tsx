@@ -16,6 +16,7 @@ import TechStackSection from "@/components/TechStackSection";
 import MetricsSection from "@/components/MetricsSection";
 import PricingSection from "@/components/PricingSection";
 import EngagementModels from "@/components/EngagementModels";
+import MarketReality from "@/components/MarketReality";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -97,6 +98,9 @@ export default function Home() {
 
       {/* 1.5 The Manifesto (Anti-BS Thesis) */}
       <ManifestoSection />
+
+      {/* 2. Market Reality Check (The Brutal Numbers) */}
+      <MarketReality />
 
       {/* 3. The Vision / Philosophy (Pain & Mission) */}
       <section id="philosophy" className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-32 max-w-7xl mx-auto">

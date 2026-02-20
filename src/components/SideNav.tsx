@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 const sections = [
     { id: "home", label: "Inicio" },
+    { id: "reality", label: "Realidad" },
     { id: "philosophy", label: "Misión" },
     { id: "clients", label: "Clientes" },
     { id: "stack", label: "Stack" },

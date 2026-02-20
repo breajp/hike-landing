@@ -25,7 +25,7 @@ export default function ManifestoSection() {
                     </div>
 
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight text-white/90 leading-tight">
-                        Solo el <span className="text-white font-medium italic">10%</span> logra escalar con Agentes IA.
+                        Solo el <span className="text-white font-medium italic">7%</span> logra escalar con Agentes IA.
                     </h2>
 
                     {/* McKinsey Link */}
