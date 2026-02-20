@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Hike | Elevate the Enterprise",
   description: "Scalable, secure, and highly available architecture designed for the future.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
