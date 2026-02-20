@@ -18,7 +18,6 @@ import PricingSection from "@/components/PricingSection";
 import EngagementModels from "@/components/EngagementModels";
 import MarketReality from "@/components/MarketReality";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -27,7 +26,6 @@ export default function Home() {
 
   return (
     <main className="relative bg-[#020202] text-white font-sans selection:bg-white/20 selection:text-white overflow-x-hidden">
-      <Navbar />
       <SideNav />
 
       {/* Dynamic Background Noise */}

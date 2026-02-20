@@ -63,9 +63,9 @@ export default function PartnershipsSection() {
                         <div className="absolute -top-10 -right-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-[60px] pointer-events-none mix-blend-screen opacity-50 group-hover:opacity-100 transition-all duration-1000" />
 
                         <div className="flex-1 flex flex-col justify-center items-center h-64 mb-6 w-full relative transition-transform duration-500 group-hover:scale-110">
-                            <span className="text-3xl md:text-4xl lg:text-5xl font-serif tracking-tight text-white/90 group-hover:text-white transition-colors">
-                                McKinsey<span className="font-light">&</span>Company
-                            </span>
+                            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif tracking-tight text-white/90 group-hover:text-white transition-all duration-300 drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)] text-center px-2">
+                                McKinsey<span className="font-light italic">&</span>Company
+                            </h3>
                         </div>
                         <h4 className="text-xl font-light tracking-wide text-white/90 mb-3 mt-auto">Designated Partners</h4>
                         <p className="text-white/50 font-light text-sm leading-relaxed tracking-wide">
