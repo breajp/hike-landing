@@ -15,6 +15,7 @@ import ManifestoSection from "@/components/ManifestoSection";
 import TechStackSection from "@/components/TechStackSection";
 import MetricsSection from "@/components/MetricsSection";
 import PricingSection from "@/components/PricingSection";
+import EngagementModels from "@/components/EngagementModels";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -174,6 +175,12 @@ export default function Home() {
       <div id="clients">
         <ClientsGrid />
         <PartnershipsSection />
+      </div>
+
+      {/* 4. Methodology & Models */}
+      <div id="methodology">
+        <MethodologySection />
+        <EngagementModels />
       </div>
 
       {/* 4.5 The Arsenal / Tech Stack */}

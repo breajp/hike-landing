@@ -8,7 +8,7 @@ const sections = [
     { id: "philosophy", label: "Misión" },
     { id: "clients", label: "Clientes" },
     { id: "stack", label: "Stack" },
-    { id: "story", label: "Historia" },
+    { id: "methodology", label: "Método" },
     { id: "units", label: "Unidades" },
     { id: "impact", label: "Impacto" },
     { id: "pricing", label: "Pricing" }
