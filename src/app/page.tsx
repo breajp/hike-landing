@@ -6,27 +6,36 @@ import Image from "next/image";
 import BottomNav from "@/components/BottomNav";
 import { ArrowDown, Cloud, Database, Bot, BrainCircuit, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import MethodologySection from "@/components/MethodologySection";
 
 const units = [
   {
     title: "Cloud & Workspace",
-    description: "Infraestructuras escalables en Google Cloud y colaboración optimizada con Google Workspace.",
+    description: "Cimientos digitales sólidos. Escalabilidad infinita y arquitecturas serverless nativas en Google Cloud.",
     icon: Cloud,
+    glowClass: "bg-blue-600",
+    glowPosition: "-bottom-20 -right-20",
   },
   {
     title: "DART",
-    description: "Data, Automatización, Reportes & Tracking. Dashboards en tiempo real y arquitecturas de datos.",
+    description: "El cerebro operativo. Unificamos flujos dispersos en dashboards de tiempo real y data lakes hiper-rápidos.",
     icon: Database,
+    glowClass: "bg-pink-600",
+    glowPosition: "-top-20 -left-20",
   },
   {
     title: "Agentes",
-    description: "Agentes autónomos de datos, marketing y creatividad que ejecutan tareas y optimizan 24/7.",
+    description: "Operaciones sin fricción. Desplegamos agentes autónomos que ejecutan, corrigen y optimizan 24/7.",
     icon: Bot,
+    glowClass: "bg-emerald-500",
+    glowPosition: "bottom-10 left-10",
   },
   {
     title: "AI para Marketing",
-    description: "Modelos predictivos, Marketing Mix Modeling y optimización de medios con Machine Learning y Vertex AI.",
+    description: "La ventaja predictiva. Machine learning customizado, MMM y optimización algorítmica de medios.",
     icon: BrainCircuit,
+    glowClass: "bg-orange-600",
+    glowPosition: "top-10 right-10",
   },
 ];
 
@@ -201,7 +210,7 @@ export default function Home() {
             <TimelineStep
               year="2020"
               name="ABN Digital"
-              desc="Establecimos nuestra huella en medios digitales y estructuras de datos, construyendo la infraestructura para escalar negocios."
+              desc="Construimos la infraestructura para escalar negocios digitales, dominando la estructuración de datos y medios a nivel operativo."
               link="https://abndigital.com.ar/"
               image="/images/abn_logo.png"
               align="right"
@@ -210,7 +219,7 @@ export default function Home() {
             <TimelineStep
               year="2023"
               name="Detrics"
-              desc="Un conector de datos diseñado para agencias de performance. Automatizamos el reporting de medios para aportar claridad extrema."
+              desc="Automatizamos el caos. Creamos un conector central de datos estructurando la comunicación de performance end-to-end."
               link="https://detrics.io/es/"
               image="/images/detrics_logo.png"
               align="left"
@@ -219,7 +228,7 @@ export default function Home() {
             <TimelineStep
               year="2025"
               name="El Ecosistema Hike"
-              desc="La convergencia definitiva. Fusionamos infraestructura cloud, inteligencia de datos avanzada y agentes autónomos en una fuerza única."
+              desc="La convergencia definitiva. Interconectamos nube, inteligencia de datos y agentes autónomos escalando juntos."
               image="/images/hike_logo.png"
               align="right"
             />
@@ -227,63 +236,109 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Vision / Philosophy */}
-      <section className="relative z-20 min-h-[60vh] flex flex-col items-center justify-center px-6 lg:px-12 py-24 max-w-6xl xl:max-w-7xl mx-auto text-center mt-4 bg-[#050505]">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="space-y-12 lg:space-y-20 w-full"
-        >
-          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wide text-white/80 leading-relaxed lg:leading-tight italic mx-auto max-w-5xl">
-            "Fabricar tiempo hasta que el humano vuelva a ser humano."
-          </h2>
+      {/* The Vision / Philosophy (Inspired by Minimal Eclipse Aesthetic) */}
+      <section id="philosophy" className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 py-32 max-w-7xl mx-auto bg-[#050505] overflow-hidden">
 
-          <div className="space-y-6 lg:space-y-8 text-sm md:text-base lg:text-xl tracking-wide text-white/50 font-light leading-relaxed max-w-3xl mx-auto">
-            <p>Usamos la tecnología de forma absoluta para devolverle tiempo a la sociedad.</p>
-            <p className="text-white/60">Auditamos y eliminamos procesos innecesarios.</p>
-            <p>Toda implementación persigue estrictamente dos métricas finales: <span className="text-white/90">tiempo</span> y <span className="text-white/90">performance</span>.</p>
-          </div>
-        </motion.div>
+        {/* Tech decorative text top center/right */}
+        <div className="absolute top-24 right-12 lg:right-32 text-white/30 font-mono text-[10px] hidden md:flex flex-col gap-1 items-end">
+          <span>{'//'}</span>
+          <span>{'//'}</span>
+          <span>{'//'}</span>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-24 flex flex-col items-center"
-        >
-          <p className="text-white/20 text-[10px] tracking-[0.3em] uppercase mb-6">¿Cómo?</p>
-          <div className="w-[1px] h-20 bg-gradient-to-b from-white/20 to-transparent relative overflow-hidden">
+        <div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8 min-h-[600px]">
+
+          {/* The Eclipse (Left Side) */}
+          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] flex-shrink-0">
+            {/* Glow behind */}
             <motion.div
-              animate={{ y: [-20, 96] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-              className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-transparent via-white/40 to-transparent"
+              animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.9, 0.6] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-white rounded-full blur-[60px] md:blur-[100px] opacity-70"
             />
+            {/* The dark planet */}
+            <div className="absolute inset-2 md:inset-6 lg:inset-8 bg-[#0B0B0B] rounded-full z-10 shadow-[inset_-10px_-10px_40px_rgba(255,255,255,0.06)]" />
+
+            {/* Content over eclipse */}
+            <div className="absolute inset-0 z-20 flex flex-col justify-center items-start text-left p-12 md:p-20 lg:p-28">
+              <span className="text-white/60 text-2xl lg:text-3xl mb-4 font-light">↘</span>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-white/90 leading-none">
+                nuestra<br />misión
+              </h2>
+              <div className="mt-8 md:mt-12 text-white/40 text-[10px] md:text-xs tracking-widest uppercase max-w-[150px] md:max-w-[200px] leading-relaxed">
+                Devolver el tiempo a la sociedad a través de la tecnología.
+              </div>
+            </div>
+
+            {/* Little decorative box bottom right of eclipse */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-4 md:-bottom-8 -right-4 md:right-0 lg:-right-8 z-30 border border-white/20 rounded-2xl p-5 md:p-6 backdrop-blur-xl bg-black/20 flex flex-col gap-8 shadow-2xl"
+            >
+              <div className="flex items-center gap-3 text-white/40">
+                <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center text-[10px]">I</div>
+                <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center text-[10px]">O</div>
+                <div className="w-6 h-6 rounded-full border border-white/40 flex items-center justify-center text-[10px]">/</div>
+              </div>
+              <div className="flex items-center justify-between gap-16 md:gap-24 text-white/50 font-mono text-[10px] md:text-xs tracking-wider">
+                <span>new era</span>
+                <span>01</span>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* Texts on the right */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-12 lg:gap-20 max-w-lg lg:ml-auto w-full z-10"
+          >
+            <div className="text-white/40 font-mono text-[10px] md:text-xs tracking-widest leading-loose">
+              <p>limbo</p>
+              <p>{')'}</p>
+              <br />
+              <p className="text-white/70 italic text-sm lg:text-base font-sans tracking-wide">"Fabricar tiempo hasta que el<br />humano vuelva a ser humano."</p>
+              <br />
+              <p>{'))'}</p>
+              <p className="text-white/80 border-b border-white/20 pb-2 inline-block">humanly digital</p>
+            </div>
+
+            <div className="space-y-6 text-sm md:text-base lg:text-lg tracking-wide text-white/50 font-light leading-relaxed border-l-2 border-white/10 pl-6">
+              <p>Auditamos y eliminamos procesos innecesarios.</p>
+              <p>Toda implementación persigue estrictamente dos métricas finales: <span className="text-white/90">tiempo</span> y <span className="text-white/90">performance</span>.</p>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
+      <MethodologySection />
+
       {/* Body Content - Units */}
-      <section id="units" className="relative z-20 px-6 lg:px-12 pb-24 bg-[#050505] pt-12">
+      <section id="units" className="relative z-20 px-6 lg:px-12 pb-32 bg-[#050505] pt-12">
         <div className="max-w-6xl xl:max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 xl:gap-12 relative z-10 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 relative z-10 pt-4">
             {units.map((unit, i) => (
               <motion.div
                 key={unit.title}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative group p-8 md:p-10 border-t border-white/[0.03] transition-colors duration-500 hover:bg-white/[0.02]"
+                transition={{ duration: 0.8, delay: i * 0.1 }}
+                className="relative group overflow-hidden rounded-[2.5rem] p-10 md:p-14 border border-white/10 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:bg-white/[0.04]"
               >
-                <div className="relative z-10 flex flex-col h-full gap-8 lg:gap-12">
-                  <div className="text-white/30 group-hover:text-white/60 transition-colors">
-                    <unit.icon strokeWidth={1} className="w-8 h-8 lg:w-12 lg:h-12" />
+                {/* Background Glow Node */}
+                <div className={cn("absolute w-64 h-64 md:w-[500px] md:h-[500px] rounded-full blur-[80px] md:blur-[140px] opacity-20 group-hover:opacity-40 transition-opacity duration-1000 mix-blend-screen pointer-events-none", unit.glowClass, unit.glowPosition)} />
+
+                <div className="relative z-10 flex flex-col h-full gap-10 lg:gap-16">
+                  <div className="text-white/60 group-hover:text-white transition-colors duration-500">
+                    <unit.icon strokeWidth={1} className="w-10 h-10 lg:w-14 lg:h-14 drop-shadow-lg" />
                   </div>
                   <div>
-                    <h3 className="text-xl lg:text-3xl font-light tracking-wide mb-3 lg:mb-6 text-white/80 group-hover:text-white transition-colors">{unit.title}</h3>
-                    <p className="text-white/40 font-light text-sm lg:text-lg lg:leading-loose leading-relaxed tracking-wide group-hover:text-white/50 transition-colors">{unit.description}</p>
+                    <h3 className="text-2xl lg:text-4xl font-light tracking-wide mb-4 lg:mb-6 text-white/90 group-hover:text-white transition-colors">{unit.title}</h3>
+                    <p className="text-white/50 font-light text-sm lg:text-lg lg:leading-loose leading-relaxed tracking-wide group-hover:text-white/70 transition-colors">{unit.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -299,15 +354,23 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl xl:max-w-4xl mx-auto space-y-10 lg:space-y-14"
+          className="max-w-3xl xl:max-w-5xl mx-auto space-y-10 lg:space-y-14"
         >
-          <p className="text-white/30 text-[10px] md:text-xs lg:text-sm tracking-[0.3em] uppercase">Estrategia de Pricing</p>
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-light tracking-wide text-white/90 leading-tight">
-            Priceamos sobre el valor generado.
+          <p className="text-white/30 text-[10px] md:text-sm tracking-[0.3em] uppercase">Estrategia de Pricing</p>
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-light tracking-tight text-white/90 leading-tight">
+            Pura alineación de intereses.
           </h2>
-          <p className="text-sm md:text-xl lg:text-2xl text-white/40 font-light leading-relaxed lg:leading-loose tracking-wide border-t border-white/[0.05] pt-10 mt-10">
-            Si elevamos tu performance y te devolvemos tu tiempo, ganamos juntos. Pura alineación.
-          </p>
+          <div className="border-t border-white/[0.05] pt-10 mt-10 space-y-8 flex flex-col items-center">
+            <p className="text-sm md:text-xl lg:text-3xl text-white/60 font-light leading-relaxed lg:leading-loose tracking-wide max-w-4xl">
+              No creemos en los retainers inflexibles orientados a "horas-hombre".
+            </p>
+            <p className="text-sm md:text-xl lg:text-3xl text-white/80 font-light leading-relaxed lg:leading-loose tracking-wide max-w-4xl">
+              Priceamos estrictamente sobre el valor neto generado.
+            </p>
+            <p className="text-xs md:text-lg lg:text-xl text-white/40 font-light leading-relaxed max-w-3xl mt-4">
+              Auditamos tu escenario y definimos objetivos claros. Si nuestra tecnología e infraestructura logran optimizar procesos y escalar tu performance, ganamos juntos.
+            </p>
+          </div>
         </motion.div>
       </section>
 
