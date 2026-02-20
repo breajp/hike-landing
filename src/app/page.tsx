@@ -3,34 +3,34 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import BottomNav from "@/components/BottomNav";
-import { ArrowDown, Cloud, Code, Database, Shield, Zap } from "lucide-react";
+import { ArrowDown, Cloud, Code, Database, Bot, BrainCircuit, Zap } from "lucide-react";
 
 const units = [
   {
-    title: "Cloud Infrastructure",
-    description: "Scalable, secure, and highly available cloud architecture designed for the future.",
+    title: "Cloud & Workspace",
+    description: "Scalable infrastructures with Google Cloud and optimized collaboration via Google Workspace.",
     icon: Cloud,
     color: "from-blue-500/20 to-cyan-500/20",
     border: "border-blue-500/30",
   },
   {
-    title: "Data & Analytics",
-    description: "Unlock the true potential of your data with advanced pipelines and AI integrations.",
+    title: "DART",
+    description: "Data, Automation, Reporting & Tracking. Real-time dashboards and future-proof tracking layers.",
     icon: Database,
     color: "from-purple-500/20 to-pink-500/20",
     border: "border-purple-500/30",
   },
   {
-    title: "Cybersecurity",
-    description: "Enterprise-grade security paradigms that protect what matters most.",
-    icon: Shield,
+    title: "Agents",
+    description: "Autonomous data, marketing, and creative agents that execute tasks and optimize continuously.",
+    icon: Bot,
     color: "from-emerald-500/20 to-teal-500/20",
     border: "border-emerald-500/30",
   },
   {
-    title: "Custom Solutions",
-    description: "Tailor-made software to solve complex operational challenges instantly.",
-    icon: Code,
+    title: "AI For Mkt",
+    description: "Predictive models, Marketing Mix Modeling, and media optimizations using custom ML and Vertex AI.",
+    icon: BrainCircuit,
     color: "from-orange-500/20 to-red-500/20",
     border: "border-orange-500/30",
   },
