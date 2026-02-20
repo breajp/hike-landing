@@ -11,6 +11,9 @@ import UnitsSection from "@/components/UnitsSection";
 import ClientsGrid from "@/components/ClientsGrid";
 import PartnershipsSection from "@/components/PartnershipsSection";
 import TimelineSection from "@/components/TimelineSection";
+import ManifestoSection from "@/components/ManifestoSection";
+import TechStackSection from "@/components/TechStackSection";
+import MetricsSection from "@/components/MetricsSection";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -89,6 +92,9 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* 1.5 The Manifesto (Anti-BS Thesis) */}
+      <ManifestoSection />
 
       {/* 2. Social Proof - Clients */}
       <ClientsGrid />
@@ -174,6 +180,9 @@ export default function Home() {
       {/* 4. Power & Alliances (Team & Partnerships) */}
       <PartnershipsSection />
 
+      {/* 4.5 The Arsenal / Tech Stack */}
+      <TechStackSection />
+
       {/* 5. The Story / Timeline (Track Record) */}
       <TimelineSection />
 
@@ -182,6 +191,9 @@ export default function Home() {
 
       {/* 7. Body Content - Units */}
       <UnitsSection />
+
+      {/* 7.5 Asymmetrical Impact (Metrics) */}
+      <MetricsSection />
 
       {/* Pricing */}
       <section className="relative z-20 px-6 lg:px-12 py-40 bg-transparent text-center flex flex-col items-center justify-center mt-12 pb-64">
