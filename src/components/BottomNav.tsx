@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function BottomNav() {
     const navItems = [
-        { name: "Start", icon: Home, href: "#home" },
-        { name: "Units", icon: Briefcase, href: "#units" },
-        { name: "Story", icon: Info, href: "#story" },
-        { name: "Contact", icon: Mail, href: "#contact" },
+        { name: "Inicio", icon: Home, href: "#home" },
+        { name: "Historia", icon: Info, href: "#story" },
+        { name: "Unidades", icon: Briefcase, href: "#units" },
+        { name: "Contacto", icon: Mail, href: "#contact" },
     ];
 
     return (
