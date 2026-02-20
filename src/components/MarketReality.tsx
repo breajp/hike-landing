@@ -18,7 +18,7 @@ const facts = [
         label: "The Value Gap",
         source: "BCG, Sept 2025",
         value: "60%",
-        description: "El 60% de las compañías no está logrando NINGÚN valor material (ahorro o ingresos) de sus inversiones en GenAI.",
+        description: "El 60% de las compañías no está logrando valor material de sus inversiones en GenAI.",
         color: "text-amber-500",
         bg: "bg-amber-500/10"
     },
